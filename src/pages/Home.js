@@ -31,9 +31,11 @@ const Home = () => {
                 bussinessCategory.map((cv,idx,arr)=>{
                     return  <li key={idx} className='me-3'>
                                 <a href='#'>
-                                    <img className=' ms-4 ' src={'http://localhost:1337'+cv.attributes.image.data.attributes.url}/>
-                                    <br/>
-                                    <span className='ms-3 '>{cv.attributes.name}</span>
+                                    <div style={{ }}>
+                                        <img className=' ms-4 p-3 rounded' style={{width:"70px", border:"1px solid grey",}} src={'http://localhost:1337'+cv.attributes.image.data.attributes.url}/>
+                                        <br/>
+                                        <span className='' style={{marginLeft:"20px" ,width:"100%"}}>{cv.attributes.name}</span>                                        
+                                    </div>
                                 </a>
                             </li>
                 })

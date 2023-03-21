@@ -2,11 +2,13 @@
 import React, { useEffect } from 'react'
 import { Form , Button } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom";
+import URL from '../helper/Url';
 
 //Function Defination Area
 const Login = () => {
 //Hooks Area
-const navigate = useNavigate();
+  
+  const navigate = useNavigate(); 
 
 
 //Function Area
@@ -17,7 +19,7 @@ let userLogin=()=>{
     "password": document.querySelector('input[type=password]').value
   }
   console.log(payload);
-  fetch(`http://localhost:1337/api/auth/local`,{
+  fetch(`${URL}/api/auth/local`,{
     method:"POST",
     headers:{
         "Content-Type": "application/json"
@@ -29,17 +31,11 @@ let userLogin=()=>{
     console.log("token -----> ", data['jwt'])
     if(data["jwt"] !== undefined){
       //Login Success
-      // window.location.href='/bussiness_register'
-      navigate("/bussiness_register")
+        window.location.href='/bussiness_register'
+        navigate("/bussiness_register")
       //Store the token in local storage
-      window.localStorage.setItem('JWT__Token',data["jwt"]);
-
-      
-      
-
+      window.localStorage.setItem('jwt_token',data["jwt"]);
     }else{
-      //Login Fail
-      // alert("bhag jao")
 
     }
     console.log(data);

@@ -6,7 +6,7 @@ header{
     border:1px solid green;
 }
 main{
-    height: 500px;
+    height: 100%;
     border: 1px solid blue;
 }
 footer{
