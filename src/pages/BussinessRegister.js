@@ -148,10 +148,7 @@ const BussinessRegister = ({user}) => {
         })
     }
 
-    // return method
-    if (!user) {
-        return <Navigate to="/login" replace />;
-    }
+   
   return (
     <div className='p-5'>
         <Form >

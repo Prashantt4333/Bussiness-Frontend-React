@@ -22,7 +22,7 @@ const Navigation = (props) => {
 
     //Function defination
     let userLogout = ()=>{
-        window.localStorage.removeItem('jwt_token')
+        window.localStorage.clear();
         navigate("/login");
     }
 
@@ -62,7 +62,7 @@ const Navigation = (props) => {
                         {
                             window.localStorage.getItem("jwt_token") !== null &&
                             <>
-                                <Nav.Link onClick={()=>{props.logout()}} className='btn btn-link'>Logout</Nav.Link>
+                                <Nav.Link onClick={()=>{userLogout()}} className='btn btn-link'>Logout</Nav.Link>
                                 <Link to="/bussiness_register" className='btn btn-link'>Register Business</Link>
                             </>
                         }
