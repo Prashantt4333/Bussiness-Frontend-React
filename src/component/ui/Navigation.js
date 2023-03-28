@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { BrowserRouter, Link, useNavigate } from 'react-router-dom'
-import URL from '../../helper/Url';
+import {URL} from '../../helper/Helper';
 
 const Navigation = (props) => {
     //Hook Area
     const navigate = useNavigate();
     const [logo , setLogo] = useState('');
+    
 
     useEffect(()=>{
         fetch(`${URL}/api/weblogo?populate=*`,{})
@@ -14,6 +15,7 @@ const Navigation = (props) => {
         .then((data)=>{
             console.log("LOGO=========>> ",data.data.attributes.logo.data.attributes.url);
             setLogo(data.data.attributes.logo.data.attributes.url);
+            
         })
         .catch(err=>err)
     },[])
@@ -30,17 +32,18 @@ const Navigation = (props) => {
     <>
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">
+                <Link to="/">
                     <img
                     src={`${URL}${logo}`}
                         width="70"
                         height="70"
                         className="d-inline-block align-top"
                         alt="React Bootstrap logo"
+                       
+                            
+                        
                     />
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
+                </Link>
                     <Form className="d-flex">
                         <Form.Control
                         type="search"
@@ -50,20 +53,22 @@ const Navigation = (props) => {
                         />
                         <Button variant="outline-success">Search</Button>
                     </Form>
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
                     <Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: '200px' }} navbarScroll>
                         <Link to="/" className='btn btn-link'>Home</Link>
                         {
                             window.localStorage.getItem("jwt_token") === null &&
                             <>
-                                <Link to="/login" className='btn btn-link'>Login</Link>
                                 <Link to="/register" className='btn btn-link'>Register</Link>
+                                <Link to="/login" className='btn btn-link'>Login</Link>
                             </>
                         }
                         {
                             window.localStorage.getItem("jwt_token") !== null &&
                             <>
-                                <Nav.Link onClick={()=>{userLogout()}} className='btn btn-link'>Logout</Nav.Link>
                                 <Link to="/bussiness_register" className='btn btn-link'>Register Business</Link>
+                                <Nav.Link onClick={()=>{userLogout()}} className='btn btn-link'>Logout</Nav.Link>
                             </>
                         }
                     </Nav>

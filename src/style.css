@@ -1,15 +1,31 @@
 .p_tbdr{
-    border: 1px dashed red;
+   
+}
+body{
+   
+    background: grey;
 }
 header{
-    height: 100px;
-    border:1px solid green;
+    background: #fff;
+
 }
 main{
     height: 100%;
-    border: 1px solid blue;
+    
+    background: #fff;
 }
+.my_img{
+    text-decoration:"none";
+    transition: width 0.2s, height 0.2s, transform 0.5s;
+}
+.my_img:hover {
+    transform: scale(1.1);
+   
+}
+
+
 footer{
-    height: 300px;
-    border: 1px solid lightblue;
+    min-height: 300px;
+    background: #fff;
+
 }

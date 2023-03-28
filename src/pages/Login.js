@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import { Form , Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
-import URL from '../helper/Url';
+import {URL} from '../helper/Helper';
 
 //Function Defination Area
 const Login = (props) => {
@@ -37,7 +37,7 @@ const Login = (props) => {
                 window.localStorage.clear();
                 window.localStorage.setItem('jwt_token',data["jwt"]);
                 setTimeout(() => {
-                    navigate('/bussiness_register');
+                    navigate('/');
                 }, 500);
                 
             }else{

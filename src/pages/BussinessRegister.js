@@ -1,6 +1,6 @@
 // import area
 import React, { useEffect, useState } from 'react'
-import URL from '../helper/Url'
+import {URL} from '../helper/Helper'
 import { Button, Form } from 'react-bootstrap'
 import swal from 'sweetalert';
 import { Navigate } from 'react-router-dom';
@@ -172,7 +172,7 @@ const BussinessRegister = ({user}) => {
                     <Form.Label>State</Form.Label>
                     <Form.Select name="state_id" aria-label="Default select example" onChange={(e)=>{getCities(e)}}>
                     {
-                            states.map((cv,idx,arr)=>{
+                            states && states.map((cv,idx,arr)=>{
                                 return <option key={idx} value={cv.id}>{cv.attributes.name}</option>
                             })
                     }
@@ -185,7 +185,7 @@ const BussinessRegister = ({user}) => {
                     <Form.Label>City</Form.Label>
                     <Form.Select name="city_id" aria-label="Default select example">
                     {
-                            cities.map((cv,idx,arr)=>{
+                            cities && cities.map((cv,idx,arr)=>{
                                 return <option key={idx} value={cv.id}>{cv.attributes.name}</option>
                             })
                     }
@@ -196,7 +196,7 @@ const BussinessRegister = ({user}) => {
                 <Form.Label>Bussiness Category</Form.Label>
                 <Form.Select name='buss_cat_id' aria-label="Default select example">
                 {
-                        bussinessCategory.map((cv,idx,arr)=>{
+                        bussinessCategory && bussinessCategory.map((cv,idx,arr)=>{
                             return <option key={idx} value={cv.id}>{cv.attributes.name}</option>
                         })
                    }
