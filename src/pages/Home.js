@@ -58,13 +58,11 @@ const Home = () => {
             setLogo(data.data.attributes.logo.data.attributes.url);
         })
         .catch(err=>err);
+    
     },[]);
     
     //2.2 function defination area
-    let myLogout=()=>{
-        window.localStorage.removeItem("jwt_token")
-        window.location.href = "/login";
-    }
+    
    
 
     let detectLocation = ()=>{ //Fat Arrow function
@@ -130,29 +128,26 @@ const Home = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        <Carousel className="w-50 ms-4 rounded " indicators={false}>
-            <Carousel.Item>
-                <img
-                className=" w-100"
-                src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_packersmovers.png?v=1.1"
-                alt="First slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                className="w-100"
-                src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_interiordesigners.png"
-                alt="Second slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                className=" w-100"
-                src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_interiordesigners.png"
-                alt="Third slide"
-                />
-            </Carousel.Item>
-        </Carousel>
+        <Row>
+            <Col >
+                <Row >
+                    <Col sm={6} className="w-50">
+                        <Carousel className="w-100 ms-4 rounded " indicators={false}>
+                                <Carousel.Item>
+                                    <img
+                                    className=" w-100"
+                                    src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_packersmovers.png?v=1.1"
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                        </Carousel>
+                    </Col>
+                    <Col>
+                        
+                    </Col>
+                </Row>
+            </Col>
+        </Row>
         <ul className="nav">
             {
                 bussinessCategory && bussinessCategory.map((cv,idx,arr)=>{
@@ -174,65 +169,6 @@ const Home = () => {
         <Row className="mt-5 ms-3 me-3 ">
             <Col sm={6}>
                 <Card className="p-3 ">
-                    <Card.Title>Weddiong Requesites</Card.Title>
-                    <Row className="text-center">
-                        <Col  >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_bridalrequisites.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_caterers.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                    </Row>
-                </Card>
-            </Col>
-            <Col sm={6}>
-            <Card className="p-3 ">
-                    <Card.Title>Weddiong Requesites</Card.Title>
-                    <Row className="text-center">
-                        <Col  >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_bridalrequisites.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_caterers.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                    </Row>
-                </Card>
-            </Col>
-        </Row>
-        <Row className="mt-5 ms-3 me-3">
-            <Col sm={6}>
-                <Card className="p-3 ">
-                    <Card.Title>Weddiong Requesites</Card.Title>
-                    <Row className="text-center">
-                        <Col  >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_bridalrequisites.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                        <Col >
-                            <img className=" rounded w-100 mb-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_caterers.png?w=256&q=75"/>
-                            <span className="">Banquet Halls</span>
-                        </Col>
-                    </Row>
-                </Card>
-            </Col>
-            <Col sm={6}>
-            <Card className="p-3 ">
                     <Card.Title>Weddiong Requesites</Card.Title>
                     <Row className="text-center">
                         <Col  >

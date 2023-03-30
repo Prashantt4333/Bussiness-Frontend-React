@@ -1,7 +1,7 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faStar } from "@fortawesome/fontawesome-free-solid"
-import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap"
+import { Badge, Breadcrumb, Button, Card, Col, ListGroup, Row } from "react-bootstrap"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
 import { URL } from "../helper/Helper"
@@ -38,9 +38,16 @@ const SearchFilter = () => {
         <>
             <Row className="p-4 ">
                 <Col sm={9}>
+                <Breadcrumb className="anil">
+                    <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+                    Library
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>Data</Breadcrumb.Item>
+                </Breadcrumb>
                     {
                         bussinesses && bussinesses.map((cv,idx,arr)=>{
-                            return <Card key={idx} className="" style={{cursor:"pointer"}} onClick={()=>{navigate("/detail?hotel_id="+cv.id)}} >
+                            return <Card key={idx} className="mb-4" style={{cursor:"pointer"}} onClick={()=>{navigate("/detail?business="+cv.id)}} >
                                         <Row className="p-2" >
                                             <Col sm={3} >
                                                 <Card.Img className="img-fluid h-75 " variant="top" src={URL+cv.attributes.photo.data[0].attributes.url}/>
@@ -68,10 +75,23 @@ const SearchFilter = () => {
                                                     <Badge bg="light" className="me-2 " text="dark">Jain</Badge>
                                                     <br />
                                                     <Card.Text className="mt-2">{cv.attributes.desc}</Card.Text>
-                                                    <a href={"tel:"+cv.attributes.phone}  className="btn btn-success " onClick={(e)=>{e.stopPropagation()}}>
-                                                        <FontAwesomeIcon style={{transform: "rotate(90deg)" ,marginRight:"10px"}} icon={faPhone}/>
+                                                    <Link
+                                                        to={"tel:" + cv.attributes.phone}
+                                                        className="btn btn-success "
+                                                        onClick={(e) => {
+                                                            //alert('okokokok');
+                                                            e.stopPropagation();
+                                                        }}
+                                                    >
+                                                        <FontAwesomeIcon
+                                                        style={{
+                                                            transform: "rotate(90deg)",
+                                                            marginRight: "10px",
+                                                        }}
+                                                        icon={faPhone}
+                                                        />
                                                         {cv.attributes.phone}
-                                                    </a>
+                                                    </Link>
                                                 </Card.Body>
                                             </Col>
                                         </Row>

@@ -23,6 +23,9 @@ main{
    
 }
 
+.anil{
+    --bs-breadcrumb-divider: '>' !important;
+}
 
 footer{
     min-height: 300px;
